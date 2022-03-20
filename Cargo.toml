@@ -16,5 +16,5 @@ members = [
     "libraries/messagequeue",
     "libraries/messagequeue/rabbitmq",
     "libraries/tests",
-    "components/tests"
+    # "components/tests"
 ]
