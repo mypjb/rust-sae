@@ -2,6 +2,19 @@
 
 members = [
     "libraries",
-    "components",
-    "tests"
+    "libraries/extension",
+    "libraries/designpattern",
+    "libraries/caching",
+    "libraries/configuration",
+    "libraries/data",
+    "libraries/data/mongodb",
+    "libraries/database",
+    "libraries/database/mysql",
+    "libraries/database/mssql",
+    "libraries/dependencyinjection",
+    "libraries/loggin",
+    "libraries/messagequeue",
+    "libraries/messagequeue/rabbitmq",
+    "libraries/tests",
+    "components/tests"
 ]
