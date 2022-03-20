@@ -1,6 +1,7 @@
 [worspace]
 
 members = [
-    "library",
-    "compoent"
+    "libraries",
+    "components",
+    "tests"
 ]
