@@ -1,0 +1,6 @@
+[worspace]
+
+members = [
+    "library",
+    "compoent"
+]
