@@ -1,20 +1,13 @@
-[worspace]
+[workspace]
 
 members = [
-    "libraries",
-    "libraries/extension",
-    "libraries/designpattern",
-    "libraries/caching",
-    "libraries/configuration",
-    "libraries/data",
-    "libraries/data/mongodb",
-    "libraries/database",
-    "libraries/database/mysql",
-    "libraries/database/mssql",
-    "libraries/dependencyinjection",
-    "libraries/loggin",
-    "libraries/messagequeue",
-    "libraries/messagequeue/rabbitmq",
-    "libraries/tests",
-    # "components/tests"
+    "libraries/sae_library",
+    "libraries/sae_library_designpattern",
+    "libraries/sae_library_caching",
+    "libraries/sae_library_configuration",
+    "libraries/sae_library_data",
+    "libraries/sae_library_database",
+    "libraries/sae_library_dependencyinjection",
+    "libraries/sae_library_loggin",
+    "libraries/sae_library_messagequeue"
 ]
