@@ -8,7 +8,7 @@ pub trait StringExtension {
 
 impl StringExtension for str {
     /// # Examples
-    /// ```
+    /// ```ignore
     /// let mut str = String::new();
     /// // empty == true
     /// assert!(str.is_empty_or_white_space());

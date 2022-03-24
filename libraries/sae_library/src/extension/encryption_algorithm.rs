@@ -13,7 +13,7 @@ pub trait EncryptionAlgorithm {
 /// Use <strong>md5</strong> encryption <code>str</code>
 impl EncryptionAlgorithm for str {
     /// # Examples
-    /// ```
+    /// ```ignore
     /// let str = "111111";
     /// 
     /// //"96e79218965eb72c92a549dd5a330112"
@@ -23,7 +23,7 @@ impl EncryptionAlgorithm for str {
         self.as_bytes().md5_str()
     }
     /// # Examples
-    /// ```
+    /// ```ignore
     /// let str = "111111";
     /// // print [u8;16] : [xxx,xxx,xxx,xxx...]
     /// print!(str.md5_byte());
@@ -36,7 +36,7 @@ impl EncryptionAlgorithm for str {
 /// Use <strong>md5</strong> encryption <code>bytes</code>
 impl EncryptionAlgorithm for [u8] {
     /// # Examples
-    /// ```
+    /// ```ignore
     /// let bytes = "111111".as_bytes();
     /// 
     /// //"96e79218965eb72c92a549dd5a330112"
@@ -56,7 +56,7 @@ impl EncryptionAlgorithm for [u8] {
     }
 
     /// # Examples
-    /// ```
+    /// ```ignore
     /// let bytes = "111111".as_bytes();
     /// // print [u8;16] : [xxx,xxx,xxx,xxx...]
     /// print!(bytes.md5_byte());
