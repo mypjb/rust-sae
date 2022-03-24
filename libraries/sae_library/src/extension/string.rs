@@ -5,7 +5,7 @@ pub trait StringExtension {
     fn is_empty_or_white_space(&self) -> bool;
 }
 
-impl StringExtension for String {
+impl StringExtension for str {
     fn is_empty_or_white_space(&self) -> bool {
         match self.is_empty() {
             true => {
