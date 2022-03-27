@@ -1,3 +1,6 @@
+use crate::cryptography::md5::*;
+use crate::cryptography::{Builder};
+
 ///Encryption algorithm extensions
 pub trait EncryptionAlgorithm {
     /// <strong>MD5</strong> algorithm return <strong>hash</strong> <code>String</code>
@@ -15,7 +18,7 @@ impl EncryptionAlgorithm for str {
     /// # Examples
     /// ```ignore
     /// let str = "111111";
-    /// 
+    ///
     /// //"96e79218965eb72c92a549dd5a330112"
     /// let hash = str.md5_str();
     /// ```
@@ -38,10 +41,10 @@ impl EncryptionAlgorithm for [u8] {
     /// # Examples
     /// ```ignore
     /// let bytes = "111111".as_bytes();
-    /// 
+    ///
     /// //"96e79218965eb72c92a549dd5a330112"
     /// let hash = bytes.md5_str();
-    /// 
+    ///
     /// ```
     fn md5_str(&self) -> String {
         let bytes = self.md5_byte();
@@ -62,7 +65,29 @@ impl EncryptionAlgorithm for [u8] {
     /// print!(bytes.md5_byte());
     /// ```
     fn md5_byte(&self) -> [u8; 16] {
-        let digest = md5::compute(self);
-        return digest.into();
+        let builder = Builder::default();
+        let cryptography = builder.build(Box::new(MD5Cryptography {}));
+        const array_length: usize = 16;
+
+        let mut array = [0; array_length];
+
+        let bytes = cryptography.encrypt(self);
+
+        let bytes_length = bytes.len();
+
+        if bytes_length == array_length {
+            let mut i = 0;
+            while i < array_length {
+                array[i] = bytes[i];
+                i += 1;
+            }
+        } else if bytes_length > 0 {
+            print!(
+                "md5 encryption failed,return byte lenght not {}, is {}",
+                array_length, bytes_length
+            );
+        }
+
+        return array;
     }
 }
