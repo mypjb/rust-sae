@@ -67,24 +67,24 @@ impl EncryptionAlgorithm for [u8] {
     fn md5_byte(&self) -> [u8; 16] {
         let builder = Builder::default();
         let cryptography = builder.build(Box::new(MD5Cryptography {}));
-        const array_length: usize = 16;
+        const ARRAY_LENGTH: usize = 16;
 
-        let mut array = [0; array_length];
+        let mut array = [0; ARRAY_LENGTH];
 
         let bytes = cryptography.encrypt(self);
 
         let bytes_length = bytes.len();
 
-        if bytes_length == array_length {
+        if bytes_length == ARRAY_LENGTH {
             let mut i = 0;
-            while i < array_length {
+            while i < ARRAY_LENGTH {
                 array[i] = bytes[i];
                 i += 1;
             }
         } else if bytes_length > 0 {
             print!(
                 "md5 encryption failed,return byte lenght not {}, is {}",
-                array_length, bytes_length
+                ARRAY_LENGTH, bytes_length
             );
         }
 

@@ -16,12 +16,26 @@ impl Cryptography for MD5Cryptography {
         print!("the algorithm not context");
     }
 }
-
+///MD5 cryptography
 pub trait MD5CryptographyBuilder {
+    /// Build md5 cryptography
+    /// # Examples
+    /// ```ignore
+    /// let builder = Builder::default();
+    /// let md5_cryptography = builder.build(Box::new(MD5Cryptography {}));
+    /// md5_cryptography.encrypt(&plain_text);
+    /// ```
     fn build_md5(&self) -> Box<dyn Cryptography>;
 }
 
-impl MD5CryptographyBuilder for  Builder{
+impl MD5CryptographyBuilder for Builder {
+    /// Build md5 cryptography
+    /// # Examples
+    /// ```ignore
+    /// let builder = Builder::default();
+    /// let md5_cryptography = builder.build(Box::new(MD5Cryptography {}));
+    /// md5_cryptography.encrypt(&plain_text);
+    /// ```
     fn build_md5(&self) -> Box<dyn Cryptography> {
         self.build(Box::new(MD5Cryptography))
     }
