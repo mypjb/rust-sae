@@ -15,10 +15,7 @@ pub trait EncryptionAlgorithm {
 
 /// Use <strong>md5</strong> encryption <code>str</code>
 impl EncryptionAlgorithm for str {
-    /// # Examples
-    /// ```ignore
-    /// let str = "111111";
-    ///
+    /// # ExamplesMD5Cryptography
     /// //"96e79218965eb72c92a549dd5a330112"
     /// let hash = str.md5_str();
     /// ```
@@ -66,7 +63,7 @@ impl EncryptionAlgorithm for [u8] {
     /// ```
     fn md5_byte(&self) -> [u8; 16] {
         let builder = Builder::default();
-        let cryptography = builder.build(Box::new(MD5Cryptography {}));
+        let cryptography = builder.build_md5();
         const ARRAY_LENGTH: usize = 16;
 
         let mut array = [0; ARRAY_LENGTH];
