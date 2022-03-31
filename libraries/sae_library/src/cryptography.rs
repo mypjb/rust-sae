@@ -1,5 +1,5 @@
 use std::string::ParseError;
-
+/// HAMC Cryptography
 pub mod hmac;
 ///MD5 Cryptography
 pub mod md5;
@@ -20,7 +20,8 @@ pub struct Context {
 /// let plain_text:[u8] = [250;250];
 /// let aes_cryptography = builder.add_public_key("xxx")
 ///                               .add_private_key("xxx")
-///                               .build(Box::new(AESCryptography {}));
+///                               .add_cryptography::<AESCryptography>()
+///                               .build();
 /// let cipher_text = aes_cryptography.encrypt(&plain_text);
 ///
 /// assert_eq!(aes_cryptography.decrypt(&cipher_text),&plain_text);
@@ -28,18 +29,12 @@ pub struct Context {
 /// let md5_cryptography = builder.build(Box::new(MD5Cryptography {}));
 /// md5_cryptography.encrypt(&plain_text);
 /// ```
+#[derive(Default)]
 pub struct Builder {
     /// <code>Cryptography</code> context
     context: Context,
 }
 
-impl Default for Builder {
-    fn default() -> Self {
-        Self {
-            context: Default::default(),
-        }
-    }
-}
 
 impl Builder {
     /// Build <code>Cryptography</code> interface
@@ -49,19 +44,15 @@ impl Builder {
     /// let plain_text:[u8] = [250;250];
     /// let aes_cryptography = builder.add_public_key("xxx")
     ///                               .add_private_key("xxx")
-    ///                               .build(Box::new(AESCryptography {}));
+    ///                               .add_cryptography::<AESCryptography>()
+    ///                               .build();
     /// let cipher_text = aes_cryptography.encrypt(&plain_text);
     ///
     /// assert_eq!(aes_cryptography.decrypt(&cipher_text),&plain_text);
     /// //or
-    /// let md5_cryptography = builder.build(Box::new(MD5Cryptography {}));
+    /// let md5_cryptography = builder.add_cryptography::<MD5Cryptography>().build();
     /// md5_cryptography.encrypt(&plain_text);
     /// ```
-    // pub fn add_cryptography<T>(&self) -> T where T:Default+Cryptography {
-    //     let cryptography = T::default();
-    //     cryptography.add_context(self.context.clone());
-    //     return cryptography;
-    // }
     pub fn add_cryptography<T: Cryptography + Default>(&self) -> Box<dyn Cryptography> {
         let t = T::default();
         let context = self.context.clone();
@@ -97,13 +88,14 @@ pub trait Cryptography {
     /// let plain_text:[u8] = [250;250];
     /// let aes_cryptography = builder.add_public_key("xxx")
     ///                               .add_private_key("xxx")
-    ///                               .build(Box::new(AESCryptography {}));
+    ///                               .add_cryptography::<AESCryptography>()
+    ///                               .build();
     ///
     /// let cipher_text = aes_cryptography.encrypt(&plain_text);
     ///
     /// assert_eq!(aes_cryptography.decrypt(&cipher_text),&plain_text);
     /// //or
-    /// let md5_cryptography = builder.build(Box::new(MD5Cryptography {}));
+    /// let md5_cryptography = builder.add_cryptography::<MD5Cryptography>().build();
     /// md5_cryptography.encrypt(&plain_text);
     /// ```
     fn encrypt(&self, plain_text: &[u8]) -> Vec<u8>;
@@ -114,13 +106,14 @@ pub trait Cryptography {
     /// let plain_text:[u8] = [250;250];
     /// let aes_cryptography = builder.add_public_key("xxx")
     ///                               .add_private_key("xxx")
-    ///                               .build(Box::new(AESCryptography {}));
+    ///                               .add_cryptography::<AESCryptography>()
+    ///                               .build();
     ///
     /// let cipher_text = aes_cryptography.encrypt(&plain_text);
     ///
     /// assert_eq!(aes_cryptography.decrypt(&cipher_text),&plain_text);
     /// //or
-    /// let md5_cryptography = builder.build(Box::new(MD5Cryptography {}));
+    /// let md5_cryptography = builder.add_cryptography::<MD5Cryptography>().build();
     /// md5_cryptography.encrypt(&plain_text);
     /// ```
     fn decrypt(&self, cipher_text: &[u8]) -> Result<Vec<u8>, ParseError>;

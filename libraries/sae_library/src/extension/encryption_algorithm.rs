@@ -1,5 +1,5 @@
 use crate::cryptography::md5::*;
-use crate::cryptography::{Builder};
+use crate::cryptography::Builder;
 
 ///Encryption algorithm extensions
 pub trait EncryptionAlgorithm {
@@ -63,7 +63,7 @@ impl EncryptionAlgorithm for [u8] {
     /// ```
     fn md5_byte(&self) -> [u8; 16] {
         let builder = Builder::default();
-        let cryptography = builder.build_md5();
+        let cryptography = builder.add_cryptography::<MD5Cryptography>().build();
         const ARRAY_LENGTH: usize = 16;
 
         let mut array = [0; ARRAY_LENGTH];

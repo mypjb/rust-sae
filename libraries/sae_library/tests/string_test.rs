@@ -1,4 +1,4 @@
-use sae_library::*;
+use sae_library::extension::*;
 
 #[test]
 fn string_test() {
