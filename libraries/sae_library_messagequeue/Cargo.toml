@@ -1,5 +1,5 @@
 [package]
-name = "messagequeue"
+name = "sae_library_messagequeue"
 version = "0.1.0"
 edition = "2021"
 

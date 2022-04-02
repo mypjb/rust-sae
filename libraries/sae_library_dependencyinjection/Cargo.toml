@@ -1,5 +1,5 @@
 [package]
-name = "dependencyinjection"
+name = "sae_library_dependencyinjection"
 version = "0.1.0"
 edition = "2021"
 

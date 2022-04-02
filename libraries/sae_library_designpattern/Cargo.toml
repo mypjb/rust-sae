@@ -1,5 +1,5 @@
 [package]
-name = "designpattern"
+name = "sae_library_designpattern"
 version = "0.1.0"
 edition = "2021"
 

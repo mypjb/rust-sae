@@ -1,5 +1,5 @@
 [package]
-name = "loggin"
+name = "sae_library_logging"
 version = "0.1.0"
 edition = "2021"
 

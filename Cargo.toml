@@ -8,6 +8,6 @@ members = [
     "libraries/sae_library_data",
     "libraries/sae_library_database",
     "libraries/sae_library_dependencyinjection",
-    "libraries/sae_library_loggin",
+    "libraries/sae_library_logging",
     "libraries/sae_library_messagequeue"
 ]
