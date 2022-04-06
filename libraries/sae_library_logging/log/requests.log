@@ -1,0 +1,4 @@
+2022-04-06 15:11:30 UTC ERROR sae_library_logging::log4j - Goes to stderr and file 
+2022-04-06 15:11:30 UTC WARN sae_library_logging::log4j - Goes to stderr and file 
+2022-04-06 15:11:30 UTC INFO sae_library_logging::log4j - Goes to stderr and file 
+2022-04-06 15:11:30 UTC DEBUG sae_library_logging::log4j - Goes to file only 
